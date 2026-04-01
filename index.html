@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mentorship Sessions Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <h1>MentorFlow</h1>
+        <p class="sidebar-subtitle">Multi-campus mentorship ops</p>
+        <nav class="nav">
+          <button class="nav-item active" data-view="dashboard">Dashboard</button>
+          <button class="nav-item" data-view="registration">Registration</button>
+          <button class="nav-item" data-view="matching">Matching</button>
+          <button class="nav-item" data-view="training">Training</button>
+          <button class="nav-item" data-view="tracking">Tracking</button>
+          <button class="nav-item" data-view="participants">Participants</button>
+          <button class="nav-item" data-view="sessions">Sessions</button>
+          <button class="nav-item" data-view="documents">Documents</button>
+        </nav>
+      </aside>
+
+      <div class="main-panel">
+        <header class="topbar card">
+          <div class="topbar-group">
+            <label for="session-select">Session</label>
+            <select id="session-select">
+              <option>Fall 2026</option>
+              <option>Spring 2026</option>
+              <option>Fall 2025 (Archived)</option>
+            </select>
+          </div>
+          <div class="topbar-group">
+            <label for="campus-select">Campus</label>
+            <select id="campus-select">
+              <option>All campuses</option>
+              <option>Montreal</option>
+              <option>Quebec City</option>
+              <option>Remote</option>
+            </select>
+          </div>
+          <button class="btn btn-secondary" id="share-link">Share registration link</button>
+          <button class="btn btn-ghost">Admin</button>
+        </header>
+
+        <main>
+          <section class="view active" id="dashboard">
+            <div class="title-row">
+              <div>
+                <h2>Dashboard</h2>
+                <p>Current context: Fall 2026 · All campuses</p>
+              </div>
+            </div>
+            <div class="grid kpi-grid">
+              <article class="card kpi"><h3>Total participants</h3><strong>842</strong><span class="badge info">+9% this week</span></article>
+              <article class="card kpi"><h3>Active matches</h3><strong>318</strong><span class="badge success">Healthy</span></article>
+              <article class="card kpi"><h3>Completion rate</h3><strong>84%</strong><span class="badge success">Above target</span></article>
+              <article class="card kpi"><h3>At risk pairs</h3><strong>23</strong><span class="badge danger">Needs follow-up</span></article>
+            </div>
+
+            <div class="grid two-col">
+              <article class="card">
+                <h3>Session progression</h3>
+                <div class="chart-bars">
+                  <div><label>Registration</label><progress value="92" max="100"></progress></div>
+                  <div><label>Matching</label><progress value="78" max="100"></progress></div>
+                  <div><label>Training</label><progress value="63" max="100"></progress></div>
+                  <div><label>Tracking</label><progress value="45" max="100"></progress></div>
+                  <div><label>Reporting</label><progress value="29" max="100"></progress></div>
+                </div>
+              </article>
+              <article class="card">
+                <h3>Active matches preview</h3>
+                <table>
+                  <thead><tr><th>Mentee</th><th>Mentor</th><th>Compatibility</th></tr></thead>
+                  <tbody>
+                    <tr><td>Emma R.</td><td>Marc T.</td><td><span class="badge success">92%</span></td></tr>
+                    <tr><td>Julien M.</td><td>Nora L.</td><td><span class="badge info">86%</span></td></tr>
+                    <tr><td>Sara B.</td><td>Daniel V.</td><td><span class="badge info">81%</span></td></tr>
+                  </tbody>
+                </table>
+              </article>
+            </div>
+          </section>
+
+          <section class="view" id="registration">
+            <div class="title-row"><h2>Registration</h2><button class="btn btn-primary">Save draft</button></div>
+            <div class="card">
+              <div class="stepper">
+                <div class="step current">1. Profile</div><div class="step">2. Goals</div><div class="step">3. Availability</div><div class="step">4. Confirmation</div>
+              </div>
+              <div class="inline-controls">
+                <span>Role</span><button class="btn btn-secondary">Mentee</button><button class="btn btn-ghost">Mentor</button>
+                <span>Language</span><button class="btn btn-secondary">EN</button><button class="btn btn-ghost">FR</button>
+              </div>
+              <div class="form-grid">
+                <label>Full name<input placeholder="Enter full name" /></label>
+                <label>Email<input placeholder="Enter email" /></label>
+                <label>Program<input placeholder="Program / Department" /></label>
+                <label>Year<select><option>1st year</option><option>2nd year</option></select></label>
+              </div>
+              <p class="hint">First-session validation: if mandatory readiness question fails, user is redirected to refusal screen with guidance.</p>
+            </div>
+          </section>
+
+          <section class="view" id="matching">
+            <div class="title-row"><h2>Matching</h2><button class="btn btn-primary">Assign mentor</button></div>
+            <div class="card">
+              <div class="inline-controls">
+                <label class="toggle"><input type="checkbox" checked/><span>Prioritize same campus</span></label>
+                <label class="toggle"><input type="checkbox" /><span>Prioritize schedule overlap</span></label>
+              </div>
+              <table>
+                <thead><tr><th>Mentee</th><th>Interests</th><th>Suggested Mentor</th><th>Compatibility</th><th>Action</th></tr></thead>
+                <tbody>
+                  <tr><td>Layla D.</td><td>Data + UX</td><td>Chris P.</td><td><span class="badge success">95%</span></td><td><button class="btn btn-secondary">Confirm</button></td></tr>
+                  <tr><td>Leo A.</td><td>Fintech</td><td>Iris G.</td><td><span class="badge info">88%</span></td><td><button class="btn btn-secondary">Confirm</button></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="view" id="training">
+            <div class="title-row"><h2>Training</h2><div><button class="btn btn-secondary">Invite</button> <button class="btn btn-primary">Create training</button></div></div>
+            <div class="grid two-col">
+              <article class="card"><h3>Mentor onboarding</h3><p>Live workshop · Apr 9</p><button class="btn btn-ghost open-modal" data-modal="attendance-modal">Attendance checklist</button></article>
+              <article class="card"><h3>Feedback best practices</h3><p>Self-paced · Apr 12</p><button class="btn btn-ghost">Send reminder</button></article>
+            </div>
+          </section>
+
+          <section class="view" id="tracking">
+            <div class="title-row"><h2>Tracking</h2><button class="btn btn-primary open-modal" data-modal="report-modal">Generate final report</button></div>
+            <article class="card">
+              <table>
+                <thead><tr><th>Pair</th><th>Mentee status</th><th>Mentor status</th><th>Actions</th></tr></thead>
+                <tbody>
+                  <tr><td>Emma R. / Marc T.</td><td><span class="badge success">On track</span></td><td><span class="badge info">Awaiting review</span></td><td><button class="btn btn-ghost">Compare</button> <button class="btn btn-ghost">View report</button></td></tr>
+                  <tr><td>Julien M. / Nora L.</td><td><span class="badge info">Needs check-in</span></td><td><span class="badge success">On track</span></td><td><button class="btn btn-ghost">Compare</button> <button class="btn btn-ghost">View report</button></td></tr>
+                </tbody>
+              </table>
+            </article>
+          </section>
+
+          <section class="view" id="participants">
+            <div class="title-row"><h2>Participants</h2></div>
+            <article class="card"><p class="hint">Filters: Session + Role + Campus</p><table><thead><tr><th>Name</th><th>Role</th><th>Campus</th><th>Session</th></tr></thead><tbody><tr><td>Ana K.</td><td>Mentee</td><td>Montreal</td><td>Fall 2026</td></tr><tr><td>Yann B.</td><td>Mentor</td><td>Remote</td><td>Fall 2026</td></tr></tbody></table></article>
+          </section>
+
+          <section class="view" id="sessions">
+            <div class="title-row"><h2>Sessions</h2><button class="btn btn-primary">Create session</button></div>
+            <div class="grid three-col">
+              <article class="card hoverable"><h3>Fall 2026</h3><p>Active · 842 participants</p><button class="btn btn-secondary">Archive</button></article>
+              <article class="card hoverable"><h3>Spring 2026</h3><p>Completed · 765 participants</p><button class="btn btn-ghost">View</button></article>
+              <article class="card hoverable"><h3>Fall 2025</h3><p>Archived · 720 participants</p><button class="btn btn-ghost">View</button></article>
+            </div>
+          </section>
+
+          <section class="view" id="documents">
+            <div class="title-row"><h2>Documents</h2></div>
+            <article class="card">
+              <div class="inline-controls">
+                <button class="btn btn-secondary">Export internship proposal (.docx)</button>
+                <button class="btn btn-secondary">Export internship proposal (PDF)</button>
+                <button class="btn btn-secondary">Export reports (PDF)</button>
+              </div>
+              <p class="hint">Example report preview shown before final generation.</p>
+            </article>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="modal hidden" id="share-modal"><div class="modal-content card"><h3>Share registration link</h3><input value="https://mentorflow.app/register/fall-2026" readonly /><div class="inline-controls"><button class="btn btn-primary">Copy</button><button class="btn btn-ghost close-modal">Close</button></div></div></div>
+    <div class="modal hidden" id="report-modal"><div class="modal-content card"><h3>Generate Final Report</h3><p>Select format and include side-by-side comparison.</p><div class="inline-controls"><button class="btn btn-primary">Generate PDF</button><button class="btn btn-ghost close-modal">Cancel</button></div></div></div>
+    <div class="modal hidden" id="attendance-modal"><div class="modal-content card"><h3>Attendance</h3><label class="toggle"><input type="checkbox" checked /><span>Emma R.</span></label><label class="toggle"><input type="checkbox" /><span>Julien M.</span></label><div class="inline-controls"><button class="btn btn-primary">Save</button><button class="btn btn-ghost close-modal">Close</button></div></div></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
