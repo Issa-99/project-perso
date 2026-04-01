@@ -3,10 +3,7 @@ const views = document.querySelectorAll('.view');
 const sessionSelect = document.getElementById('session-select');
 const campusSelect = document.getElementById('campus-select');
 const dashboardContext = document.getElementById('dashboard-context');
- codex/improve-existing-code-rlzagx
 const welcomeTitle = document.getElementById('welcome-title');
-=======
- main
 
 navItems.forEach((item) => {
   item.addEventListener('click', () => {
@@ -26,7 +23,6 @@ const shareLinkInput = document.getElementById('share-link-input');
 const copyFeedback = document.getElementById('copy-feedback');
 
 const updateDashboardContext = () => {
- codex/improve-existing-code-rlzagx
   dashboardContext.textContent = `You are viewing: ${sessionSelect.value} · ${campusSelect.value}`;
 };
 
@@ -34,18 +30,12 @@ const updateWelcomeTitle = () => {
   const hour = new Date().getHours();
   const period = hour < 12 ? 'morning' : hour < 18 ? 'afternoon' : 'evening';
   welcomeTitle.textContent = `Good ${period}, welcome back 👋`;
-
-  dashboardContext.textContent = `Current context: ${sessionSelect.value} · ${campusSelect.value}`;
- main
 };
 
 sessionSelect.addEventListener('change', updateDashboardContext);
 campusSelect.addEventListener('change', updateDashboardContext);
 updateDashboardContext();
- codex/improve-existing-code-rlzagx
 updateWelcomeTitle();
-=======
- main
 
 shareBtn.addEventListener('click', () => shareModal.classList.remove('hidden'));
 copyShareLinkBtn.addEventListener('click', async () => {
