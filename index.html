@@ -54,7 +54,7 @@
             <div class="title-row">
               <div>
                 <h2>Dashboard</h2>
-                <p>Current context: Fall 2026 · All campuses</p>
+                <p id="dashboard-context">Current context: Fall 2026 · All campuses</p>
               </div>
             </div>
             <div class="grid kpi-grid">
@@ -176,7 +176,7 @@
       </div>
     </div>
 
-    <div class="modal hidden" id="share-modal"><div class="modal-content card"><h3>Share registration link</h3><input value="https://mentorflow.app/register/fall-2026" readonly /><div class="inline-controls"><button class="btn btn-primary">Copy</button><button class="btn btn-ghost close-modal">Close</button></div></div></div>
+    <div class="modal hidden" id="share-modal"><div class="modal-content card"><h3>Share registration link</h3><input id="share-link-input" value="https://mentorflow.app/register/fall-2026" readonly /><p class="hint hidden" id="copy-feedback" role="status" aria-live="polite">Link copied.</p><div class="inline-controls"><button class="btn btn-primary" id="copy-share-link">Copy</button><button class="btn btn-ghost close-modal">Close</button></div></div></div>
     <div class="modal hidden" id="report-modal"><div class="modal-content card"><h3>Generate Final Report</h3><p>Select format and include side-by-side comparison.</p><div class="inline-controls"><button class="btn btn-primary">Generate PDF</button><button class="btn btn-ghost close-modal">Cancel</button></div></div></div>
     <div class="modal hidden" id="attendance-modal"><div class="modal-content card"><h3>Attendance</h3><label class="toggle"><input type="checkbox" checked /><span>Emma R.</span></label><label class="toggle"><input type="checkbox" /><span>Julien M.</span></label><div class="inline-controls"><button class="btn btn-primary">Save</button><button class="btn btn-ghost close-modal">Close</button></div></div></div>
 

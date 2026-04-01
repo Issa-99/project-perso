@@ -1,5 +1,8 @@
 const navItems = document.querySelectorAll('.nav-item');
 const views = document.querySelectorAll('.view');
+const sessionSelect = document.getElementById('session-select');
+const campusSelect = document.getElementById('campus-select');
+const dashboardContext = document.getElementById('dashboard-context');
 
 navItems.forEach((item) => {
   item.addEventListener('click', () => {
@@ -14,8 +17,29 @@ const shareBtn = document.getElementById('share-link');
 const shareModal = document.getElementById('share-modal');
 const openModalBtns = document.querySelectorAll('.open-modal');
 const closeModalBtns = document.querySelectorAll('.close-modal');
+const copyShareLinkBtn = document.getElementById('copy-share-link');
+const shareLinkInput = document.getElementById('share-link-input');
+const copyFeedback = document.getElementById('copy-feedback');
+
+const updateDashboardContext = () => {
+  dashboardContext.textContent = `Current context: ${sessionSelect.value} · ${campusSelect.value}`;
+};
+
+sessionSelect.addEventListener('change', updateDashboardContext);
+campusSelect.addEventListener('change', updateDashboardContext);
+updateDashboardContext();
 
 shareBtn.addEventListener('click', () => shareModal.classList.remove('hidden'));
+copyShareLinkBtn.addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(shareLinkInput.value);
+    copyFeedback.classList.remove('hidden');
+    window.setTimeout(() => copyFeedback.classList.add('hidden'), 1800);
+  } catch {
+    copyFeedback.textContent = 'Unable to copy automatically. Please copy manually.';
+    copyFeedback.classList.remove('hidden');
+  }
+});
 
 openModalBtns.forEach((btn) => {
   btn.addEventListener('click', () => {
@@ -30,5 +54,13 @@ closeModalBtns.forEach((btn) => {
 window.addEventListener('click', (event) => {
   if (event.target.classList.contains('modal')) {
     event.target.classList.add('hidden');
+  }
+});
+
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    document.querySelectorAll('.modal:not(.hidden)').forEach((modal) => {
+      modal.classList.add('hidden');
+    });
   }
 });
