@@ -14,7 +14,7 @@ body {
   margin: 0;
   font-family: Inter, system-ui, sans-serif;
   color: var(--text);
-  background: var(--bg);
+  background: radial-gradient(circle at top right, #eef2ff 0%, #f9fafb 45%);
 }
 .app-shell { display: grid; grid-template-columns: 260px 1fr; min-height: 100vh; }
 .sidebar {
@@ -47,6 +47,13 @@ body {
   padding: 16px;
   transition: transform .18s ease, box-shadow .18s ease;
 }
+.welcome-banner {
+  background: linear-gradient(135deg, #eef2ff 0%, #ffffff 70%);
+  border-color: #dbe4ff;
+  margin-bottom: 16px;
+}
+.welcome-banner h3 { margin: 0 0 6px; }
+.welcome-banner p { margin: 0 0 12px; color: #374151; }
 .hoverable:hover, .kpi:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(15, 23, 42, .08); }
 .topbar { display: flex; align-items: end; gap: 12px; margin-bottom: 16px; }
 .topbar-group { display: grid; gap: 6px; min-width: 170px; }
@@ -69,7 +76,7 @@ input:focus, select:focus { outline: none; border-color: var(--primary); box-sha
 }
 .btn:active { transform: scale(.98); }
 .btn-primary { background: var(--primary); color: #fff; }
-.btn-primary:hover { filter: brightness(.95); }
+.btn-primary:hover { filter: brightness(.95); box-shadow: 0 8px 16px rgba(79, 70, 229, .25); }
 .btn-secondary { border-color: var(--primary); color: var(--primary); background: #fff; }
 .btn-ghost { background: transparent; color: var(--subtext); }
 .title-row { display: flex; justify-content: space-between; align-items: center; margin: 8px 0 14px; }
