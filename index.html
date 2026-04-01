@@ -13,7 +13,7 @@
     <div class="app-shell">
       <aside class="sidebar">
         <h1>MentorFlow</h1>
-        <p class="sidebar-subtitle">Multi-campus mentorship ops</p>
+        <p class="sidebar-subtitle">Your mentorship co-pilot ✨</p>
         <nav class="nav">
           <button class="nav-item active" data-view="dashboard">Dashboard</button>
           <button class="nav-item" data-view="registration">Registration</button>
@@ -46,7 +46,7 @@
             </select>
           </div>
           <button class="btn btn-secondary" id="share-link">Share registration link</button>
-          <button class="btn btn-ghost">Admin</button>
+          <button class="btn btn-ghost">My profile</button>
         </header>
 
         <main>
@@ -54,9 +54,14 @@
             <div class="title-row">
               <div>
                 <h2>Dashboard</h2>
-                <p>Current context: Fall 2026 · All campuses</p>
+                <p id="dashboard-context">You are viewing: Fall 2026 · All campuses</p>
               </div>
             </div>
+            <article class="card welcome-banner">
+              <h3 id="welcome-title">Welcome back 👋</h3>
+              <p>You have <strong>23 pairs</strong> that may need attention this week. Start with a quick check-in to keep everyone on track.</p>
+              <button class="btn btn-primary">Review at-risk pairs</button>
+            </article>
             <div class="grid kpi-grid">
               <article class="card kpi"><h3>Total participants</h3><strong>842</strong><span class="badge info">+9% this week</span></article>
               <article class="card kpi"><h3>Active matches</h3><strong>318</strong><span class="badge success">Healthy</span></article>
@@ -176,7 +181,7 @@
       </div>
     </div>
 
-    <div class="modal hidden" id="share-modal"><div class="modal-content card"><h3>Share registration link</h3><input value="https://mentorflow.app/register/fall-2026" readonly /><div class="inline-controls"><button class="btn btn-primary">Copy</button><button class="btn btn-ghost close-modal">Close</button></div></div></div>
+    <div class="modal hidden" id="share-modal"><div class="modal-content card"><h3>Share registration link</h3><input id="share-link-input" value="https://mentorflow.app/register/fall-2026" readonly /><p class="hint hidden" id="copy-feedback" role="status" aria-live="polite">Link copied.</p><div class="inline-controls"><button class="btn btn-primary" id="copy-share-link">Copy</button><button class="btn btn-ghost close-modal">Close</button></div></div></div>
     <div class="modal hidden" id="report-modal"><div class="modal-content card"><h3>Generate Final Report</h3><p>Select format and include side-by-side comparison.</p><div class="inline-controls"><button class="btn btn-primary">Generate PDF</button><button class="btn btn-ghost close-modal">Cancel</button></div></div></div>
     <div class="modal hidden" id="attendance-modal"><div class="modal-content card"><h3>Attendance</h3><label class="toggle"><input type="checkbox" checked /><span>Emma R.</span></label><label class="toggle"><input type="checkbox" /><span>Julien M.</span></label><div class="inline-controls"><button class="btn btn-primary">Save</button><button class="btn btn-ghost close-modal">Close</button></div></div></div>
 
